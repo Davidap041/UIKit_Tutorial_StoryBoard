@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned))
         
         blueView.addGestureRecognizer(panGesture)
+        panGesture.delegate = self
     }
     
     @objc func panned(_ gesture: UIPanGestureRecognizer){
@@ -29,5 +30,20 @@ class ViewController: UIViewController {
         blueView.frame.origin.y += translation.y
         
         gesture.setTranslation(.zero, in: blueView)
+    }
+    @IBAction func longPressed(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == .began {
+            blueView.transform = CGAffineTransform(scaleX: 1.25, y: 1.25)
+        }
+        if sender.state == .ended {
+            blueView.transform = .identity
+            print("ended")
+        }
+    }
+}
+
+extension ViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
