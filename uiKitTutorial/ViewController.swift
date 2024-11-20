@@ -12,10 +12,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = UIColor.lightGray
         
         // MARK: - Views Tutorial
-        let myView = UIView(frame: CGRect(x:50,y:50,width: 100,height: 100))
+        let drawInCenter = view.center.x - 50
+        let myView = UIView(frame: CGRect(x:drawInCenter,y:100,width: 100,height: 100))
         myView.backgroundColor = .magenta
         myView.clipsToBounds = true // clip the sub view
         myView.alpha = 0.5 // opacity attr
@@ -38,9 +39,13 @@ class ViewController: UIViewController {
         myView.addSubview(subView)
         view.addSubview(myView)
         
-        // MARK: - Labels Tutorial
+        // MARK: - Labels Tutorial - sub class of view
+        let label = UILabel(frame: CGRect(x: 50, y: 200, width: 200, height: 100))
+        label.text = "Hello "
+        label.textAlignment = .center
+        view.addSubview(label)
         
-        
+        //MARK: - Image
     }
 
 
