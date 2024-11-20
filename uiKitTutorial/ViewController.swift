@@ -10,60 +10,24 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var blueView: UIView!
-    var offset:CGPoint?
-    
+      
     // empty project
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        view.backgroundColor = .white
-        view.isUserInteractionEnabled = true
-        // view.isMultipleTouchEnabled = true
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panned))
         
+        blueView.addGestureRecognizer(panGesture)
     }
     
-    // MARK: - Touches
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        let touch = touches.first!
+    @objc func panned(_ gesture: UIPanGestureRecognizer){
+        // print("panned")
         
-        // get offset touch location
-        if touch.view == blueView{
-            let location = touch.location(in: blueView)
-            offset = location
-            return
-        }
+        let translation = gesture.translation(in: blueView)
         
-        let location = touch.location(in: view)
-        print("touches began \(location)")
-    }
-
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesMoved(touches, with: event)
-        let touch = touches.first!
-        let location = touch.location(in: view)
+        blueView.frame.origin.x += translation.x
+        blueView.frame.origin.y += translation.y
         
-        guard let offset = offset else{
-            return
-        }
-        
-        if touch.view == blueView{
-            blueView.frame.origin.x = location.x - offset.x
-            blueView.frame.origin.y = location.y - offset.y
-        }
-        
-        
-        print("touches moved \(location)")
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        let touch = touches.first!
-        let location = touch.location(in: view)
-        print("touches ended \(location)")
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touches cancelled")
+        gesture.setTranslation(.zero, in: blueView)
     }
 }
