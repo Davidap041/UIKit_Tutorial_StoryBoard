@@ -46,6 +46,11 @@ class ViewController: UIViewController {
         view.addSubview(label)
         
         //MARK: - Image
+        let imageView = UIImageView(frame: CGRect(x: 50, y: 400, width: 200, height: 200))
+        // imageView.image = UIImage(named: "photo1")
+        imageView.image = UIImage(systemName: "pencil")
+        imageView.contentMode = .scaleAspectFit
+        view.addSubview(imageView)
     }
 
 
