@@ -18,5 +18,8 @@ class ViewController: UIViewController {
     }
 
 
+    @IBAction func checkChanged(_ sender: CheckBox) {
+        print("Checkbox \(sender.checked ? "Checked":"Unchecked")")
+    }
 }
 

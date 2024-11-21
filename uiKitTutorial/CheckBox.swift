@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class CheckBox: UIView {
+class CheckBox: UIControl {
 
     private weak var imageView: UIImageView!
     
@@ -49,5 +49,11 @@ class CheckBox: UIView {
         
         backgroundColor = UIColor.clear
         
+        addTarget(self, action: #selector(touchUpInside), for: .touchUpInside)
+        
+    }
+    @objc func touchUpInside(){
+        checked = !checked
+        sendActions(for: .valueChanged)
     }
 }
