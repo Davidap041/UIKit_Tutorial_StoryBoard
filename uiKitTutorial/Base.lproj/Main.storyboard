@@ -17,9 +17,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZr-KE-l2i">
-                                <rect key="frame" x="132.33333333333331" y="59" width="128.33333333333331" height="60"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Todos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZr-KE-l2i">
+                                <rect key="frame" x="160" y="59" width="73" height="33.666666666666657"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -34,23 +34,23 @@
                                 <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TwX-MZ-wLu">
-                                <rect key="frame" x="0.0" y="127" width="401" height="725"/>
+                                <rect key="frame" x="0.0" y="100.66666666666669" width="401" height="751.33333333333326"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkedCell" id="il3-fm-3NS" customClass="CheckTableViewCell" customModule="uiKitTutorial" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="401" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="401" height="42.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="il3-fm-3NS" id="4o5-hH-yAi">
-                                            <rect key="frame" x="0.0" y="0.0" width="401" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="401" height="42.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lw-5X-18G">
-                                                    <rect key="frame" x="20" y="11.000000000000002" width="42" height="21.666666666666671"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lw-5X-18G">
+                                                    <rect key="frame" x="20.000000000000004" y="11.000000000000002" width="41.333333333333343" height="20.666666666666671"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bV-ZD-g7E" customClass="CheckBox" customModule="uiKitTutorial" customModuleProvider="target">
-                                                    <rect key="frame" x="310" y="0.0" width="56" height="47.333333333333336"/>
+                                                    <rect key="frame" x="310" y="0.0" width="56" height="46.333333333333336"/>
                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     <connections>
                                                         <action selector="checked:" destination="il3-fm-3NS" eventType="valueChanged" id="UG2-Me-IYb"/>
@@ -60,6 +60,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailingMargin" secondItem="7bV-ZD-g7E" secondAttribute="trailing" constant="15" id="5Eh-EI-Hfa"/>
                                                 <constraint firstItem="7bV-ZD-g7E" firstAttribute="top" secondItem="4o5-hH-yAi" secondAttribute="topMargin" constant="-11" id="7Zs-Sj-AiF"/>
+                                                <constraint firstItem="7bV-ZD-g7E" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8Lw-5X-18G" secondAttribute="trailing" constant="8" symbolic="YES" id="DUG-sI-MmA"/>
                                                 <constraint firstItem="7bV-ZD-g7E" firstAttribute="leading" secondItem="4o5-hH-yAi" secondAttribute="leading" constant="310" id="LDE-vg-Ium"/>
                                                 <constraint firstItem="8Lw-5X-18G" firstAttribute="top" secondItem="4o5-hH-yAi" secondAttribute="topMargin" id="S3a-AL-YhB"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="7bV-ZD-g7E" secondAttribute="bottom" constant="-14.666665395100914" id="fH4-2c-Y8v"/>
@@ -95,6 +96,9 @@
                             <constraint firstItem="NZr-KE-l2i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vX4-lQ-OiI"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="TwX-MZ-wLu" id="Llz-fM-F7j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

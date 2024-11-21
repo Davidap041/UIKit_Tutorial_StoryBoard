@@ -7,15 +7,21 @@
 
 import UIKit
 
-class CheckTableViewCell: UITableViewCell {
+protocol CheckTableViewCellDelegate: AnyObject{
+    func checkTableViewCell(_ cell: CheckTableViewCell,
+                            didChangeCheckedState checked: Bool)
+}
 
+class CheckTableViewCell: UITableViewCell {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var checkbox: CheckBox!
     
+    weak var delegate: CheckTableViewCellDelegate?
     
     @IBAction func checked(_ sender: CheckBox) {
         updateChecked()
+        delegate?.checkTableViewCell(self, didChangeCheckedState: checkbox.checked)
     }
     
     func set(title: String, checked: Bool){

@@ -9,11 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let todos = [
+    var todos = [
         Todo(title: "Make a vanilla pudding"),
         Todo(title: "Put pudding in a mayo jarl"),
         Todo(title: "Eat in a public place"),
     ]
+    
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +44,25 @@ extension ViewController: UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "checkedCell", for: indexPath) as! CheckTableViewCell
         
+        cell.delegate = self
+        
         let todo = todos[indexPath.row]
         
         cell.set(title: todo.title, checked: todo.isComplete)
         
         return cell
     }
-    
-    
-    
-    
+}
+extension ViewController: CheckTableViewCellDelegate{
+    func checkTableViewCell(_ cell: CheckTableViewCell, didChangeCheckedState checked: Bool) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        let todo = todos[indexPath.row]
+        
+        let newTodo = Todo(title: todo.title, isComplete: checked)
+        
+        todos[indexPath.row] = newTodo
+        
+    }
 }
