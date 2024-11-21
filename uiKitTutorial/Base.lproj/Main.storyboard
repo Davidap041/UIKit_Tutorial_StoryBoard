@@ -33,9 +33,46 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="square.and.pencil" catalog="system"/>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TwX-MZ-wLu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="TwX-MZ-wLu">
                                 <rect key="frame" x="0.0" y="127" width="401" height="725"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="checkedCell" id="il3-fm-3NS" customClass="CheckTableViewCell" customModule="uiKitTutorial" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="401" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="il3-fm-3NS" id="4o5-hH-yAi">
+                                            <rect key="frame" x="0.0" y="0.0" width="401" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Lw-5X-18G">
+                                                    <rect key="frame" x="20" y="11.000000000000002" width="42" height="21.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7bV-ZD-g7E" customClass="CheckBox" customModule="uiKitTutorial" customModuleProvider="target">
+                                                    <rect key="frame" x="310" y="0.0" width="56" height="47.333333333333336"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    <connections>
+                                                        <action selector="checked:" destination="il3-fm-3NS" eventType="valueChanged" id="UG2-Me-IYb"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7bV-ZD-g7E" secondAttribute="trailing" constant="15" id="5Eh-EI-Hfa"/>
+                                                <constraint firstItem="7bV-ZD-g7E" firstAttribute="top" secondItem="4o5-hH-yAi" secondAttribute="topMargin" constant="-11" id="7Zs-Sj-AiF"/>
+                                                <constraint firstItem="7bV-ZD-g7E" firstAttribute="leading" secondItem="4o5-hH-yAi" secondAttribute="leading" constant="310" id="LDE-vg-Ium"/>
+                                                <constraint firstItem="8Lw-5X-18G" firstAttribute="top" secondItem="4o5-hH-yAi" secondAttribute="topMargin" id="S3a-AL-YhB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7bV-ZD-g7E" secondAttribute="bottom" constant="-14.666665395100914" id="fH4-2c-Y8v"/>
+                                                <constraint firstItem="8Lw-5X-18G" firstAttribute="leading" secondItem="4o5-hH-yAi" secondAttribute="leadingMargin" id="hyL-Uq-CSl"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="8Lw-5X-18G" secondAttribute="bottom" id="iFK-3S-4uA"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="checkbox" destination="7bV-ZD-g7E" id="xJn-kc-29L"/>
+                                            <outlet property="label" destination="8Lw-5X-18G" id="mPw-VY-1Om"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="nTs-9f-yMW"/>
                                 </connections>
@@ -45,6 +82,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Uth-ER-2Rq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Fy6-SV-aJY"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="TwX-MZ-wLu" secondAttribute="bottom" constant="-34" id="Hvp-4I-Hmv"/>
+                            <constraint firstItem="TwX-MZ-wLu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U4p-Ob-mJ6"/>
+                            <constraint firstItem="TwX-MZ-wLu" firstAttribute="top" secondItem="NZr-KE-l2i" secondAttribute="bottom" constant="8" id="UxN-UE-gy8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="TwX-MZ-wLu" secondAttribute="trailing" constant="-24" id="WH5-Zr-LSt"/>
                             <constraint firstItem="NZr-KE-l2i" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Uth-ER-2Rq" secondAttribute="trailing" constant="8" symbolic="YES" id="dCw-oM-jKa"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="hsa-pt-kTM" secondAttribute="trailing" constant="16" id="do7-kI-njY"/>
                             <constraint firstItem="Uth-ER-2Rq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="li8-km-GVi"/>

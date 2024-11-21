@@ -15,6 +15,7 @@ class CheckBox: UIControl {
     private var image:UIImage{
         return checked ? UIImage(systemName: "checkmark.square.fill")!:UIImage(systemName: "square")!
     }
+    
     @IBInspectable
     public var checked: Bool = false {
         didSet{
