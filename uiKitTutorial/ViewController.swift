@@ -22,7 +22,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         
     }
+    @IBAction func startEditing(_ sender: Any) {
+        tableView.isEditing = !tableView.isEditing
+    }
     
+    @IBSegueAction func todoViewController(_ coder: NSCoder) -> TodoViewController? {
+        let vc = TodoViewController(coder: coder)
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            let todo = todos[indexPath.row]
+            vc?.todo = todo
+        }
+        vc?.delegate = self
+        vc?.presentationController?.delegate = self
+        
+        return vc
+    }
 }
 
 extension ViewController: UITableViewDelegate{
@@ -48,6 +63,8 @@ extension ViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
+    
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -84,6 +101,12 @@ extension ViewController: UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let todo = todos.remove(at: sourceIndexPath.row)
+        todos.insert(todo, at: destinationIndexPath.row)
+    }
+    
 }
 extension ViewController: CheckTableViewCellDelegate{
     func checkTableViewCell(_ cell: CheckTableViewCell, didChangeCheckedState checked: Bool) {
@@ -96,5 +119,28 @@ extension ViewController: CheckTableViewCellDelegate{
         
         todos[indexPath.row] = newTodo
         
+    }
+}
+
+extension ViewController: TodoViewControllerDelegate{
+    
+    func todoViewController(_ vc: TodoViewController, didSaveTodo todo: Todo) {
+        
+        dismiss(animated: true){
+            if let indexPath = self.tableView.indexPathForSelectedRow{
+                self.todos[indexPath.row] = todo
+                self.tableView.reloadRows(at: [indexPath], with: .none)
+            } else {
+                self.todos.append(todo)
+                self.tableView.insertRows(at: [IndexPath(row: self.todos.count-1, section: 0)], with: .automatic)
+            }
+        }
+    }
+}
+extension ViewController: UIAdaptivePresentationControllerDelegate{
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        if let IndexPath = tableView.indexPathForSelectedRow{
+            tableView.deselectRow(at: IndexPath, animated: true)
+        }
     }
 }
