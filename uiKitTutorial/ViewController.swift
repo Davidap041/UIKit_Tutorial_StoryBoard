@@ -25,6 +25,31 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let action = UIContextualAction(style: .normal, title: "Complete") {
+            action,view,complete in
+            
+            // create new todo selected with same title
+            let todo = self.todos[indexPath.row].completeToogled()
+            self.todos[indexPath.row] = todo
+            
+            let cell = tableView.cellForRow(at: indexPath) as! CheckTableViewCell
+            cell.set(checked:todo.isComplete)
+                     
+            complete(true)
+            
+        }
+        
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+}
+
 extension ViewController: UITableViewDataSource {
  
     /* define number of sections
@@ -51,6 +76,13 @@ extension ViewController: UITableViewDataSource {
         cell.set(title: todo.title, checked: todo.isComplete)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete{
+            self.todos.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
     }
 }
 extension ViewController: CheckTableViewCellDelegate{
