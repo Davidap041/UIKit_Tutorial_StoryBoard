@@ -64,6 +64,7 @@ extension ViewController: UICollectionViewDataSource{
         
         cell.backgroundColor = UIColor.systemCyan
         cell.label.text = String(indexPath.item)
+        
         return cell
     }
     
