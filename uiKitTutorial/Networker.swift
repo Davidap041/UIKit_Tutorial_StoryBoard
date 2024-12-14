@@ -13,10 +13,23 @@ enum NetworkerError: Error{
     case badData
 }
 class Networker {
+    
+    static let shared = Networker() // singleton
+    
+    private let session: URLSession
+    
+    init() {
+        let config = URLSessionConfiguration.default
+        session = URLSession(configuration: config)
+    }
+    
     func getQuote(completion: @escaping(Kanye?,Error?) -> (Void)) {
         let url = URL(string: "https://api.kanye.rest/")!
         
-        let task = URLSession.shared.dataTask(with: url) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        let task = session.dataTask(with: url) {
             // task completed with error or not
             (data: Data?, response: URLResponse?,error: Error?) in
             if let error = error {
@@ -50,4 +63,19 @@ class Networker {
         }
         task.resume()
     }
+    
+    func getImage(completion: @escaping (Data?, Error?) -> Void){
+        let url = URL(string: "https://pt.wikipedia.org/wiki/Ficheiro:Kanye_West_at_the_2009_Tribeca_Film_Festival_(crop_2).jpg")
+        
+        let task = session.downloadTask(with: url) {
+            (localURL: URL?, response: URLResponse?, error: Error?) in
+            
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(nil,error)
+                }
+            }
+        }
+    }
+    
 }
