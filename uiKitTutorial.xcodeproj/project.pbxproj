@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		09B9D5322CEE16DF002A272D /* Exceptions for "uiKitTutorial" folder in "uiKitTutorial" target */ = {
+		09B9D5322CEE16DF002A272D /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,24 +40,9 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		09B9D5092CEE16DD002A272D /* uiKitTutorial */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				09B9D5322CEE16DF002A272D /* Exceptions for "uiKitTutorial" folder in "uiKitTutorial" target */,
-			);
-			path = uiKitTutorial;
-			sourceTree = "<group>";
-		};
-		09B9D5232CEE16DF002A272D /* uiKitTutorialTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = uiKitTutorialTests;
-			sourceTree = "<group>";
-		};
-		09B9D52D2CEE16DF002A272D /* uiKitTutorialUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = uiKitTutorialUITests;
-			sourceTree = "<group>";
-		};
+		09B9D5092CEE16DD002A272D /* uiKitTutorial */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (09B9D5322CEE16DF002A272D /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = uiKitTutorial; sourceTree = "<group>"; };
+		09B9D5232CEE16DF002A272D /* uiKitTutorialTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = uiKitTutorialTests; sourceTree = "<group>"; };
+		09B9D52D2CEE16DF002A272D /* uiKitTutorialUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = uiKitTutorialUITests; sourceTree = "<group>"; };
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +185,7 @@
 				};
 			};
 			buildConfigurationList = 09B9D5022CEE16DD002A272D /* Build configuration list for PBXProject "uiKitTutorial" */;
+			compatibilityVersion = "Xcode 15.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -208,7 +194,6 @@
 			);
 			mainGroup = 09B9D4FE2CEE16DD002A272D;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
 			productRefGroup = 09B9D5082CEE16DD002A272D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
