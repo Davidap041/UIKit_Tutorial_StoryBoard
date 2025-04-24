@@ -67,7 +67,7 @@ class Networker {
     func getImage(completion: @escaping (Data?, Error?) -> Void){
         let url = URL(string: "https://pt.wikipedia.org/wiki/Ficheiro:Kanye_West_at_the_2009_Tribeca_Film_Festival_(crop_2).jpg")!
         
-        let task = session.downloadTask(with: url) {
+        _ = session.downloadTask(with: url) {
             (localURL: URL?, response: URLResponse?, error: Error?) in
             
             if let error = error {

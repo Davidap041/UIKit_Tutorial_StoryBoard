@@ -17,16 +17,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDY-aZ-K6A">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDY-aZ-K6A">
                                 <rect key="frame" x="57" y="427" width="266" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Random"/>
                                 <connections>
                                     <action selector="randomQuote:" destination="BYZ-38-t0r" eventType="touchUpInside" id="daf-c2-wlV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcR-zl-Ffr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="9" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kcR-zl-Ffr">
                                 <rect key="frame" x="91" y="266" width="232" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="sNN-nQ-T50"/>
@@ -39,8 +38,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="ZDY-aZ-K6A" firstAttribute="trailing" secondItem="kcR-zl-Ffr" secondAttribute="trailing" id="ATG-iG-s6v"/>
                             <constraint firstItem="kcR-zl-Ffr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="207" id="YMs-iu-Ehg"/>
                             <constraint firstItem="kcR-zl-Ffr" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="91" id="aeJ-O5-eZ3"/>
+                            <constraint firstItem="ZDY-aZ-K6A" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="57" id="i4p-uE-HGI"/>
+                            <constraint firstItem="ZDY-aZ-K6A" firstAttribute="top" secondItem="kcR-zl-Ffr" secondAttribute="bottom" constant="74" id="jI3-Le-U7o"/>
                             <constraint firstItem="kcR-zl-Ffr" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" constant="-70" id="tYe-Ah-IQX"/>
                         </constraints>
                     </view>
